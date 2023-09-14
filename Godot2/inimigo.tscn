@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://um5s1yq7lrqe"]
+
+[ext_resource type="Texture2D" uid="uid://bsm47nokpfc0q" path="res://art/enemyFlyingAlt_1.png" id="1_eirrw"]
+[ext_resource type="Texture2D" uid="uid://p8ellbdlh58a" path="res://art/enemyFlyingAlt_2.png" id="2_uafp7"]
+[ext_resource type="Texture2D" uid="uid://dvxhdtdnl033c" path="res://art/enemySwimming_1.png" id="3_5yx64"]
+[ext_resource type="Texture2D" uid="uid://d4gj6jdgku7su" path="res://art/enemySwimming_2.png" id="4_dry5u"]
+[ext_resource type="Texture2D" uid="uid://c2hdofllqbsxg" path="res://art/enemyWalking_1.png" id="5_l6cya"]
+[ext_resource type="Texture2D" uid="uid://dw25x3jv44wrx" path="res://art/enemyWalking_2.png" id="6_1t36l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsi63"]
+radius = 54.0
+height = 172.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im31v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eirrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uafp7")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5yx64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dry5u")
+}],
+"loop": true,
+"name": &"Swimming",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l6cya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1t36l")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 3.0
+}]
+
+[node name="Inimigo" type="Node2D"]
+
+[node name="Inimigo" type="RigidBody2D" parent="."]
+position = Vector2(95, -188)
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo"]
+position = Vector2(8, 10)
+shape = SubResource("CapsuleShape2D_dsi63")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Inimigo"]
+position = Vector2(8, 5)
+sprite_frames = SubResource("SpriteFrames_im31v")
+animation = &"Swimming"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Inimigo"]
+position = Vector2(5, 6.5)
+scale = Vector2(5.35, 7.35)

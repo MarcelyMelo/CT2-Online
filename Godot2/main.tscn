@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c4nrw3joelljx"]
+
+[node name="Main" type="Node"]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="InicioTimer" type="Timer" parent="."]
+wait_time = 2.0
